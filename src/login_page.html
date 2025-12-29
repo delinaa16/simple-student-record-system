@@ -1,0 +1,73 @@
+<!--
+  File: login_page.html
+  Initial Version: v0.1 (included in Release v1.0)
+  Current Version: v0.1 (no CR changes)
+  Description: Simple login page with username and password.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Student Record - Login</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="login-body">
+  <div class="container login-container">
+    <h1>Student Record Management System</h1>
+    <h2>Login</h2>
+
+    <form id="loginForm" class="form-card">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input
+          id="username"
+          name="username"
+          type="text"
+          placeholder="Enter username"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          id="password"
+          name="password"
+          type="password"
+          placeholder="Enter password"
+          required
+        />
+      </div>
+
+      <button type="submit" class="btn primary-btn">Login</button>
+      <p id="loginMessage" class="message"></p>
+    </form>
+  </div>
+
+  <script>
+    // Simple front-end only login (no real authentication).
+    // Version: v0.1 (Release v1.0 and v1.1 – unchanged)
+    document.getElementById('loginForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const username = document.getElementById('username').value.trim();
+      const password = document.getElementById('password').value.trim();
+      const messageEl = document.getElementById('loginMessage');
+
+      if (!username || !password) {
+        messageEl.textContent = 'Please enter both username and password.';
+        messageEl.classList.add('error-text');
+        return;
+      }
+
+      // In a real system we would validate on the server.
+      // For this SCM mini-project, any non-empty credentials are allowed.
+      messageEl.textContent = '';
+      window.location.href = 'dashboard.html';
+    });
+  </script>
+</body>
+</html>
+
+

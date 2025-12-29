@@ -1,0 +1,126 @@
+<!--
+  File: dashboard.html
+  Initial Version: v0.1 (Release v1.0)
+    - Basic student table and static data
+  Current Version: v1.1 (Release v1.1)
+    - CR-01: Search functionality by Student ID
+    - CR-02: Update student details (name, department, year) with validation
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Student Dashboard - Student Record Management System</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="dashboard-body">
+  <header class="top-bar">
+    <div class="container top-bar-content">
+      <h1>Student Record Management System</h1>
+      <span class="version-label">Release v1.1</span>
+    </div>
+  </header>
+
+  <main class="container main-layout">
+    <!-- Search Panel (CR-01) -->
+    <section class="panel">
+      <h2>Search Student (CR-01)</h2>
+      <form id="searchForm" class="form-inline">
+        <div class="form-group inline">
+          <label for="searchId">Student ID</label>
+          <input
+            id="searchId"
+            type="text"
+            placeholder="e.g., S001"
+          />
+        </div>
+        <button type="submit" class="btn primary-btn">Search</button>
+        <button type="button" id="resetSearch" class="btn secondary-btn">Reset</button>
+      </form>
+      <p id="searchMessage" class="message"></p>
+    </section>
+
+    <!-- Student Table -->
+    <section class="panel">
+      <h2>Student List</h2>
+      <div class="table-wrapper">
+        <table class="data-table" id="studentTable">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Department</th>
+              <th>Year</th>
+            </tr>
+          </thead>
+          <tbody id="studentTableBody">
+            <!-- Populated by searchStudent.js -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Edit / Update Form (CR-02) -->
+    <section class="panel">
+      <h2>Edit Student Record (CR-02)</h2>
+      <form id="editForm" class="form-grid form-card">
+        <div class="form-group">
+          <label for="editId">Student ID (read-only)</label>
+          <input
+            id="editId"
+            type="text"
+            placeholder="Select a student or enter ID and load"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="editName">Name</label>
+          <input
+            id="editName"
+            type="text"
+            placeholder="Full name"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="editDepartment">Department</label>
+          <input
+            id="editDepartment"
+            type="text"
+            placeholder="e.g., Software Engineering"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="editYear">Year</label>
+          <input
+            id="editYear"
+            type="number"
+            min="1"
+            max="5"
+            placeholder="e.g., 2"
+          />
+        </div>
+
+        <div class="form-actions">
+          <button type="button" id="loadStudentBtn" class="btn secondary-btn">
+            Load Student by ID
+          </button>
+          <button type="submit" class="btn primary-btn">
+            Save Changes
+          </button>
+        </div>
+
+        <p id="editMessage" class="message"></p>
+      </form>
+    </section>
+  </main>
+
+  <!-- Scripts: search first, then update -->
+  <script src="searchStudent.js" defer></script>
+  <script src="updateStudent.js" defer></script>
+</body>
+</html>
+
+
