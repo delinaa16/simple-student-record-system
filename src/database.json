@@ -1,0 +1,28 @@
+[
+  {
+    "id": "S001",
+    "name": "Alice Johnson",
+    "department": "Software Engineering",
+    "year": 2
+  },
+  {
+    "id": "S002",
+    "name": "Benjamin Lee",
+    "department": "Information Systems",
+    "year": 3
+  },
+  {
+    "id": "S003",
+    "name": "Chaltu Mekonnen",
+    "department": "Computer Science",
+    "year": 1
+  },
+  {
+    "id": "S004",
+    "name": "Daniela Tesfaye",
+    "department": "Software Engineering",
+    "year": 4
+  }
+]
+
+
